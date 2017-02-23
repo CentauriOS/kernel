@@ -1,5 +1,5 @@
 .PHONY: all
-all: linux/vmlinux
+all: linux/arch/x86/boot/bzImage
 
 .PHONY: configure
 configure:
@@ -11,7 +11,7 @@ configure:
 clean:
 	$(MAKE) -C linux clean mrproper
 
-linux/vmlinux: linux/.config .git/modules/linux/HEAD
+linux/arch/x86/boot/bzImage: linux/.config .git/modules/linux/HEAD
 	$(MAKE) -C linux
 
 linux/.config: centaurios.config
